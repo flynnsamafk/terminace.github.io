@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terminace Help ©2025</title>
+  <style>
+    @font-face {
+      font-family: 'SuisseIntl';
+      src: url('assets/fonts/SuisseIntl-Bold.ttf') format('truetype');
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    body {
+      background: radial-gradient(circle at bottom, #600000 0%, #000 70%);
+      color: white;
+      margin: 0;
+      padding: 0;
+      font-family: 'Helvetica', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    h1 {
+      font-family: 'SuisseIntl', sans-serif;
+      font-size: 2.6em;
+      font-weight: 700;
+      color: #ff0000;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .lang-btn {
+      display: inline-block;
+      margin-bottom: 60px;
+      color: #fff;
+      font-family: 'SuisseIntl', sans-serif;
+      border: 1px solid #ff0000;
+      padding: 5px 15px;
+      font-size: 0.9em;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: transparent;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .lang-btn:hover {
+      background: #ff0000;
+      color: #000;
+    }
+
+    .faq {
+      width: 80%;
+      max-width: 500px;
+    }
+
+    details {
+      border-top: 1px solid #444;
+      border-bottom: 1px solid #444;
+      padding: 15px 0;
+      cursor: pointer;
+      position: relative;
+      transition: 0.3s;
+    }
+
+    summary {
+      font-size: 1.1em;
+      text-transform: uppercase;
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      list-style: none;
+    }
+
+    summary::after {
+      content: '↘';
+      font-size: 1.2em;
+      transition: transform 0.3s;
+    }
+
+    details[open] summary::after {
+      transform: rotate(180deg);
+    }
+
+    details p {
+      margin-top: 15px;
+      color: #ccc;
+      font-size: 0.95em;
+      line-height: 1.6;
+    }
+
+    details img {
+      margin-top: 10px;
+      width: 100%;
+      max-width: 400px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+    }
+  </style>
+</head>
+<body>
+  <h1>TERMINACE<br>HELP ©2025</h1>
+  <button class="lang-btn" onclick="toggleLang()">[ ENGLISH ]</button>
+
+  <div class="faq">
+    <details>
+      <summary>Subtitle Issue?</summary>
+      <img src="assets\images\subtitle_issue.jpg" alt="Subtitle Folder Example">
+      <p class="lang-text" 
+         data-en="Ensure the subtitle (.srt) file and movie are in the same folder." 
+         data-my="Pastikan fail subtitle (.srt) dan movie berada dalam folder yang sama." 
+         data-cn="确保字幕文件 (.srt) 与影片在同一个文件夹中。"></p>
+    </details>
+    
+
+    <details>
+      <summary>Downloading on iPhone?</summary>
+      <img src="assets/images/m4ajehaj4q2c1.jpg" alt="iPhone Download Steps">
+      <p class="lang-text" 
+         data-en="Open your email link → Tap the three dots → Select ‘Send a copy’ → ‘Save Video’." 
+         data-my="Buka pautan dalam emel → Tekan tiga titik → Pilih ‘Send a copy’ → ‘Save Video’." 
+         data-cn="打开你的电子邮件链接 → 点击右上角的三个点 → 选择‘发送副本’ → ‘保存视频’。"></p>
+    </details>
+
+    <details>
+      <summary>Can’t Play Movie?</summary>
+      <img src="assets/images/vlc_player.png" alt="VLC Player Example">
+      <p class="lang-text" 
+         data-en="Install VLC Player from the Play Store or App Store and open the file there." 
+         data-my="Pasang VLC Player dari Play Store atau App Store dan buka fail di situ." 
+         data-cn="从 Play Store 或 App Store 安装 VLC 播放器，然后在其中打开文件。"></p>
+    </details>
+  </div>
+
+  
+
+  
+  
+  <script>
+    let currentLang = 'EN';
+
+    function updateLanguage() {
+      document.querySelectorAll('.lang-text').forEach(p => {
+        p.textContent = p.getAttribute(`data-${currentLang.toLowerCase()}`);
+      });
+    }
+
+    function toggleLang() {
+      const btn = document.querySelector('.lang-btn');
+      if (currentLang === 'EN') {
+        currentLang = 'MY';
+        btn.innerText = '[ MALAY ]';
+      } else if (currentLang === 'MY') {
+        currentLang = 'CN';
+        btn.innerText = '[ 中文 ]';
+      } else {
+        currentLang = 'EN';
+        btn.innerText = '[ ENGLISH ]';
+      }
+      updateLanguage();
+    }
+
+    updateLanguage(); // initial render
+  </script>
+</body>
+</html>
